@@ -6,6 +6,8 @@ router.post("/create-new-detail-healthy-index", detailHealthyIndexController.cre
 
 router.get("/get-all-detail-healthy-index/:id", detailHealthyIndexController.getAllDetailHealthyIndexByUserId);
 
+router.get("/get-detail-healthy-index-lastest/:id", detailHealthyIndexController.getDetailHealthyIndexLastest);
+
 router.delete("/delete-detail-healthy-index/:id", detailHealthyIndexController.deleteDetailHealthyIndex);
 
 module.exports = router

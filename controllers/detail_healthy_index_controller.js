@@ -23,6 +23,17 @@ var functions = {
         });
     },
 
+    getDetailHealthyIndexLastest: (req, res, next) => {
+        var healthyIndexId = req.params.id
+        var userId = req.headers['userid']; 
+        detailHealthyIndexService.getDetailHealthyIndexLastest(healthyIndexId, userId, (error, results) => {
+            if (error) {
+                return res.status(500).json({error});
+            }
+            return res.status(200).json(results);
+        });
+    },
+
     deleteDetailHealthyIndex: (req, res) => {
         var detailHealthyIndexId = req.params.id
         

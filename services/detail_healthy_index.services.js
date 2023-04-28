@@ -26,6 +26,16 @@ async function getAllDetailHealthyIndexByUserId(healthyIndexId, userId, callback
     })
 }
 
+async function getDetailHealthyIndexLastest(healthyIndexId, userId, callback) {
+    DetailHealthyIndex.find({healthyIndexId: healthyIndexId, userId: userId}).sort({'_id': -1})
+    .then((detailHealthyIndexs) => {
+        return callback(null, {detailHealthyIndex: detailHealthyIndexs[0]})
+    })
+    .catch((error) => {
+        return callback(error)
+    })
+}
+
 async function deleteDetailHealthyIndex(id, callback) {
     DetailHealthyIndex.deleteOne({_id: id})
     .then((_) => {
@@ -36,8 +46,11 @@ async function deleteDetailHealthyIndex(id, callback) {
     })
 }
 
+
+
 module.exports = {
     createNewDetailHealthyIndex,
     getAllDetailHealthyIndexByUserId,
     deleteDetailHealthyIndex,
+    getDetailHealthyIndexLastest,
 }

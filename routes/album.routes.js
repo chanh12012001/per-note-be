@@ -10,4 +10,6 @@ router.delete("/deleteAlbum/:id", albumController.deleteAlbum);
 
 router.put("/updateAlbum/:id", albumController.updateAlbum);
 
+router.get("/getAllFirstImageFromAlbum", albumController.getAllFirstImageFromAlbum);
+
 module.exports = router  

@@ -54,9 +54,35 @@ async function updateAlbum(paramsId, albumBody ,callback) {
     })
 }
 
+async function getAllFirstImageFromAlbum(userId, callback) {
+    const imageList = [];
+    Album.find({userId: userId})
+    .then( async(albums) => {
+        // albums.forEach(async (album) => {
+        //     var image = await Image.findOne({albumId: album._id})
+        //     if (image != null)  imageList.push(image.imageUrl);
+        // })
+        for (let i = 0; i < albums.length; i++) {
+            var album = albums[i];
+            var image = await Image.findOne({albumId: album._id})
+            if (image != null)  imageList.push({album: album, image: image.imageUrl});
+        }
+        return callback(null, {imageList})    
+    })
+    .catch((error) => {
+        return callback(error)
+    })
+}
+
+function Employee() {
+    this.name = '';
+    this.dept = 'general';
+}
+
 module.exports = {
     createNewAlbum,
     getAllAlbums,
     deleteAlbum,
     updateAlbum,
+    getAllFirstImageFromAlbum,
 }
