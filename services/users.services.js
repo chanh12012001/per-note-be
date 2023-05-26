@@ -33,6 +33,28 @@ async function register(params, phoneNumber, callback) {
     
 }
 
+async function registerGoogle(params, callback) {
+    
+    User.create({
+        phoneNumber: '',
+        name: params.name,
+        dateOfBirth: '',
+        sex: '',
+        email: params.email,
+        password: '',
+        avatarUrl: params.avatarUrl,
+        cloudinaryId: ''    
+    })
+    .then((data) => {
+        const token = tokenController.generateAccessToken(data._id)
+        return callback(null, {auth: true, token})
+    })
+    .catch((error) => {
+        return callback(error)
+    })
+
+}
+
 async function login({phoneNumber, password}, callback) {
     const user = await User.findOne({phoneNumber});
 
@@ -212,4 +234,5 @@ module.exports = {
     forgotPassword,
     updateAvatar,
     updateUserInfo,
+    registerGoogle,
 }

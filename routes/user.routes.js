@@ -10,6 +10,8 @@ router.post("/verifyOTP", authController.verifyOTP);
 
 router.post('/register', authController.register)
 
+router.post('/registerGoogle', authController.registerGoogle)
+
 router.post('/login', authController.login)
 
 router.put('/forgotPassword', authController.forgotPassword)

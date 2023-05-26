@@ -46,6 +46,17 @@ var functions = {
         }   
     },
 
+    registerGoogle: (req, res, next) => {
+            const salt = bcryptjs.genSaltSync(10)
+                
+            userService.registerGoogle(req.body, (error, result) => {
+                if (error) {
+                    return res.json(error)
+                }
+                return res.status(200).json(result)
+    })
+    },
+
     login: (req, res, next) => {
         const { phoneNumber, password } = req.body
     
