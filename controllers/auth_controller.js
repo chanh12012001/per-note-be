@@ -68,6 +68,17 @@ var functions = {
         })
     },
 
+    googleLogin: (req, res, next) => {
+        const { email } = req.body
+    
+        userService.googleLogin({email}, (error, result) => {
+            if (error) {
+                return res.status(404).json(error)
+            }
+            return res.status(200).json(result) 
+        })
+    },
+
     forgotPassword: (req, res, next) => {
         const { phoneNumber } = req.body
     

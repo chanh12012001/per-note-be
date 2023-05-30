@@ -14,6 +14,8 @@ router.post('/registerGoogle', authController.registerGoogle)
 
 router.post('/login', authController.login)
 
+router.post('/googleLogin', authController.googleLogin)
+
 router.put('/forgotPassword', authController.forgotPassword)
 
 router.get('/logout', authController.logout)
