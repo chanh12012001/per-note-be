@@ -47,8 +47,7 @@ var functions = {
     },
 
     registerGoogle: (req, res, next) => {
-            const salt = bcryptjs.genSaltSync(10)
-                
+        
             userService.registerGoogle(req.body, (error, result) => {
                 if (error) {
                     return res.json(error)
