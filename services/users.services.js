@@ -71,7 +71,7 @@ async function login({phoneNumber, password}, callback) {
         }
     } else {
         return callback({
-            message: 'The phone doesn`t exist'
+            message: 'Phone is not exist'
         })
     }
 }
@@ -84,7 +84,7 @@ async function googleLogin({email}, callback) {
         
     } else {
         return callback({
-            message: {email}
+            message: 'Email is not exist'
         })
     }
 }
