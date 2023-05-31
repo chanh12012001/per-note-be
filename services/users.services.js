@@ -78,14 +78,13 @@ async function login({phoneNumber, password}, callback) {
 
 async function googleLogin({email}, callback) {
     const user = await User.findOne({email});
-
     if (user != null) {
             const token = tokenController.generateAccessToken(user._id)
             return callback(null, {...user.toJSON(), token})
         
     } else {
         return callback({
-            message: 'The email doesn`t exist'
+            message: {email}
         })
     }
 }

@@ -69,7 +69,7 @@ var functions = {
 
     googleLogin: (req, res, next) => {
         const { email } = req.body
-    
+        
         userService.googleLogin({email}, (error, result) => {
             if (error) {
                 return res.status(404).json(error)
