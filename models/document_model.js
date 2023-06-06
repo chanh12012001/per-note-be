@@ -3,14 +3,28 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const DocumentSchema = new Schema({
-  name: {
-    type: String,
-  },
-  userId: {
-    type: String,
-  },
+    createdAt: {
+        type: Date
+    },
+    documentUrl: {
+        type: String,
+    },
+    cloudinaryId: {
+        type: String,
+    },
+    userId: {
+      type: String,
+    },
 });
 
-const DocumentValue = mongoose.model("documents", DocumentSchema);
+DocumentSchema.set("toJSON", {
+    transform: (document, returnedObject) => {
+      returnedObject.id = returnedObject._id.toString();
+      delete returnedObject._id;
+      delete returnedObject.__v;
+    },
+  });
 
-module.exports = DocumentValue;
+const Document = mongoose.model("documents", DocumentSchema);
+
+module.exports = Image;
