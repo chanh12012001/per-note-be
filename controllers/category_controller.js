@@ -1,4 +1,4 @@
-const categoryService = require('../services/category.services')
+const categoryService = require('../services/categories.services')
 
 var functions = {
     createNewCategory: (req, res, next) => {
