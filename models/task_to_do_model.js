@@ -12,7 +12,7 @@ const ToDoSchema = new Schema({
     isCompleted: {
         type: Boolean,
     },
-    categoryId: {
+    categoryid: {
         type: String,
     },
 });

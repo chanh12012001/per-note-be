@@ -6,7 +6,7 @@ async function uploadTasksToCategory( params, callback) {
         name: params.name,
         dueDate: params.dueDate,
         isCompleted: params.isCompleted,
-        categoryId: params.categoryId,
+        categoryid: params.categoryid,
     })
     .then((task) => {
         return callback(null, {message: 'Thêm thành công', task})
@@ -27,8 +27,8 @@ async function deleteTasks(params, callback) {
 }
 
 
-async function getAllTasksByCategoryId(categoryId,dueDate , callback) {
-    Task.find({categoryId: categoryId, dueDate: dueDate})
+async function getAllTasksByCategoryId(categoryid,dueDate , callback) {
+    Task.find({categoryid: categoryid, dueDate: dueDate})
     .then((todos) => {
         return callback(null, {todos})
     })
