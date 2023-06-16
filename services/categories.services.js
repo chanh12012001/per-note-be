@@ -25,6 +25,7 @@ async function getAllCategories(params, callback) {
     })
 }
 
+
 async function deleteCategory(params, callback) {
     Category.deleteOne({_id: params})
     .then((_) => {

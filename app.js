@@ -8,7 +8,7 @@ const routesHealthyIndex = require('./routes/healthy_index.routes')
 const routesDetailHealthyIndex = require('./routes/detail_healthy_index.routes')
 const routesAccount = require('./routes/account.routes')
 const routesCategory = require('./routes/category.routes')
-
+const routesTaskToDo = require('./routes/task_to_do.routes')
 
 const app = express()
 
@@ -24,5 +24,6 @@ app.use('/', routesHealthyIndex)
 app.use('/', routesDetailHealthyIndex)
 app.use('/', routesAccount)
 app.use('/', routesCategory)
+app.use('/', routesTaskToDo)
 
 module.exports = app
