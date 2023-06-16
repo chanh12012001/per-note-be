@@ -1,12 +1,12 @@
 const fs = require('fs')
 const Task = require('../models/task_to_do_model')
 
-async function uploadTasksToCategory(categoryId, params, callback) {
+async function uploadTasksToCategory( params, callback) {
     Task.create({
         name: params.name,
         dueDate: params.dueDate,
         isCompleted: params.isCompleted,
-        categoryId: categoryId,
+        categoryId: params.categoryId,
     })
     .then((task) => {
         return callback(null, {message: 'Thêm thành công', task})
