@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 
 const ToDoSchema = new Schema({
     dueDate: {
-        type: Date
+        type: String
     },
     name: {
         type: String,
