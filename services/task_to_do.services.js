@@ -1,4 +1,3 @@
-const fs = require('fs')
 const Task = require('../models/task_to_do_model')
 
 async function uploadTasksToCategory( params, callback) {
@@ -27,8 +26,8 @@ async function deleteTasks(params, callback) {
 }
 
 
-async function getAllTasksByCategoryId(categoryid, dueDate , callback) {
-    Task.find({categoryid: categoryid, dueDate: dueDate})
+async function getAllTasksByCategoryId(categoryid , callback) {
+    Task.find({categoryid: categoryid})
     .then((task) => {
         return callback(null, {task})
     })

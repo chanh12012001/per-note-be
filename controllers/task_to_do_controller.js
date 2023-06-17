@@ -12,9 +12,9 @@ var functions = {
     },  
 
     getAllTasksByCategoryId: (req, res, next) => {
-        var dueDate = req.headers['dueDate'];
+        // var dueDate = req.headers['dueDate'];
         var categoryid = req.headers['categoryid']; 
-        tasksCategoryService.getAllTasksByCategoryId(categoryid, dueDate ,(error, results) => {
+        tasksCategoryService.getAllTasksByCategoryId(categoryid ,(error, results) => {
             if (error) {
                 return res.status(500).json({error});
             }
