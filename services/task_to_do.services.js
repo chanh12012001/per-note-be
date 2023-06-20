@@ -26,8 +26,8 @@ async function deleteTasks(params, callback) {
 }
 
 
-async function getAllTasksByCategoryId(categoryid , callback) {
-    Task.find({categoryid: categoryid})
+async function getAllTasksByCategoryId(categoryid , dueDate, callback) {
+    Task.find({categoryid: categoryid , dueDate: dueDate})
     .then((task) => {
         return callback(null, {task})
     })
