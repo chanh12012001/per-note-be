@@ -31,6 +31,16 @@ async function getAllTasks(params, callback) {
     })
 }
 
+async function getAllTasksByCategoryId(taskCategoryId , date, callback) {
+    Task.find({taskCategoryId: taskCategoryId , date: date})
+    .then((task) => {
+        return callback(null, {task})
+    })
+    .catch((error) => {
+        return callback(error)
+    })
+}
+
 async function deleteTask(params, callback) {
     Task.deleteOne({_id: params})
     .then((tasks) => {
@@ -57,4 +67,5 @@ module.exports = {
     getAllTasks,
     deleteTask,
     updateTaskCompletion,
+    getAllTasksByCategoryId
 }

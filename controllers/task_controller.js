@@ -20,6 +20,18 @@ var functions = {
         });
     },
 
+    getAllTasksByCategoryId: (req, res, next) => {
+        const date = req.headers['date'];
+        const taskcategoryid = req.headers['taskcategoryid'];
+        console.log(req.headers);
+        taskService.getAllTasksByCategoryId(taskcategoryid, date ,(error, results) => {
+            if (error) {
+                return res.status(500).json({error});
+            }
+            return res.status(200).json(results);
+        });
+    },
+
     deleteTask: (req, res, next) => {
         var taskId = req.params.id; 
         taskService.deleteTask(taskId, (error, results) => {
