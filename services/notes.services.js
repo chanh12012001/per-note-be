@@ -3,12 +3,13 @@ const cloudinary = require('../config/cloudinary.config')
 const fs = require('fs')
 const date = require('date-and-time')
 
+
 async function createNewNote(body, file, callback) {
 
     const uploader = async (path) => await cloudinary.uploads(path, 'per-note/images-note') || ""
 
-    const createdAt = date.format(new Date(), 'DD/MM/YYYY HH:mm:ss');
-    
+    const createdAt = date.format(new Date(), 'YYYY/MM/DD HH:mm:ss');
+
     const path = file!= null ? file.path : ""
      
     const newPath = file!= null  ? await uploader(path) : ""
@@ -18,6 +19,7 @@ async function createNewNote(body, file, callback) {
         title: body.title,
         content: body.content,
         imageUrl: file!= null ? newPath.url : "",
+        color: body.color,
         cloudinaryId: file!= null ? newPath.id : "",
         userId: body.userId,
     })
@@ -68,6 +70,7 @@ async function updateNote(noteId, body, file ,callback) {
                 title: body.title || note.title,
                 content: body.content || note.content,
                 imageUrl: result.url,
+                color: body.color || note.color,
                 cloudinaryId: result.id
             }
             Note.findByIdAndUpdate(noteId, data, {new: true}).then((note) => {         
@@ -78,6 +81,7 @@ async function updateNote(noteId, body, file ,callback) {
                 title: body.title || note.title,
                 content: body.content || note.content,
                 imageUrl: note.imageUrl,
+                color: body.color || note.color,
                 cloudinaryId: note.cloudinaryId,
             }
             Note.findByIdAndUpdate(noteId, data, {new: true}).then((note) => {         

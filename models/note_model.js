@@ -15,6 +15,9 @@ const NoteSchema = new Schema({
     imageUrl: {
         type: String,
     },
+    color: {
+        type: String,
+    },
     cloudinaryId: {
         type: String,
     },
