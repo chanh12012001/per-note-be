@@ -8,9 +8,9 @@ async function createNewTask(params, callback) {
         date: params.date,
         startTime: params.startTime,
         endTime: params.endTime,   
-        color: params.color, 
+        // color: params.color, 
         remind: params.remind,
-        repeat: params.repeat,
+        taskCategoryId: params.taskCategoryId,
         userId: params.userId,  
     })
     .then((task) => {

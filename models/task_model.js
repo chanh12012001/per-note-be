@@ -21,13 +21,10 @@ const TaskSchema = new Schema({
   endTime: {
     type: String,
   },
-  color: {
-    type: Number,
-  },
   remind: {
     type: Number,
   },
-  repeat: {
+  taskCategoryId: {
     type: String,
   },
   userId: {
