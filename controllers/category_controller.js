@@ -10,6 +10,16 @@ var functions = {
         });
     },
 
+    getCategoryById: (req, res, next) => {
+        var categoryId = req.params.id; 
+        categoryService.getCategoryById(categoryId, (error, results) => {
+            if (error) {
+                return res.status(500).json(error);
+            }
+            return res.status(200).json(results);
+        });
+    },
+
     getAllCategories: (req, res, next) => {
         var userId = req.headers['userid']; 
         categoryService.getAllCategories(userId, (error, results) => {

@@ -36,6 +36,16 @@ async function deleteCategory(params, callback) {
     })
 }
 
+async function getCategoryById(paramsID, callback) {
+    Category.findById(paramsID)
+    .then((category) => {
+        return callback(null, category)
+    })
+    .catch((_) => {
+        return callback({message: 'Lỗi. Vui lòng thử lại!'})
+    })
+}
+
 async function updateCategory(paramsId, categoryBody ,callback) {
     Category.findByIdAndUpdate(paramsId, {
         name: categoryBody.name,
@@ -52,6 +62,7 @@ async function updateCategory(paramsId, categoryBody ,callback) {
 
 module.exports = {
     createNewCategory,
+    getCategoryById,
     getAllCategories,
     deleteCategory,
     updateCategory,
